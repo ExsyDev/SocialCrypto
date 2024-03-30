@@ -13,69 +13,80 @@ class AuthController extends Controller
     /**
      * Redirect the user to the Provider authentication page.
      *
-     * @param $provider
+     * @param string $provider
      * @return JsonResponse
      */
-    public function redirectToProvider($provider)
+    public function redirectToProvider(string $provider): JsonResponse
     {
+        // Validate the provider
         $validated = $this->validateProvider($provider);
         if (!is_null($validated)) {
             return $validated;
         }
 
+        // Redirect user to the Provider authentication page
         return Socialite::driver($provider)->stateless()->redirect();
     }
 
     /**
-     * Obtain the user information from Provider.
+     * Obtain the user information from Provider callback.
      *
-     * @param $provider
+     * @param string $provider
      * @return JsonResponse
      */
-    public function handleProviderCallback($provider)
+    public function handleProviderCallback(string $provider): JsonResponse
     {
+        // Validate the provider
         $validated = $this->validateProvider($provider);
+
         if (!is_null($validated)) {
             return $validated;
         }
+
         try {
+            // Get user information from Provider
             $user = Socialite::driver($provider)->stateless()->user();
         } catch (ClientException $exception) {
+            // Handle invalid credentials
             return response()->json(['error' => 'Invalid credentials provided.'], 422);
         }
 
         $userCreated = User::firstOrCreate(
-            [
-                'email' => $user->getEmail()
-            ],
+            ['email' => $user->getEmail()],
             [
                 'email_verified_at' => now(),
                 'name' => $user->getName(),
                 'status' => true,
             ]
         );
+
+        // Update user provider information
         $userCreated->providers()->updateOrCreate(
             [
                 'provider' => $provider,
                 'provider_id' => $user->getId(),
             ],
-            [
-                'avatar' => $user->getAvatar()
-            ]
+            ['avatar' => $user->getAvatar()]
         );
-        $token = $userCreated->createToken('token-name')->plainTextToken;
 
+        // Generate access token
+        $token = $userCreated->createToken('api-token')->plainTextToken;
+
+        // Return user information with access token
         return response()->json($userCreated, 200, ['Access-Token' => $token]);
     }
 
     /**
-     * @param $provider
-     * @return JsonResponse
+     * Validate the provider.
+     *
+     * @param string $provider
+     * @return JsonResponse|null
      */
-    protected function validateProvider($provider): JsonResponse
+    protected function validateProvider(string $provider): ?JsonResponse
     {
         if (!in_array($provider, ['telegram', 'google'])) {
             return response()->json(['error' => 'Please login using telegram or google'], 422);
         }
+        return null;
     }
 }
