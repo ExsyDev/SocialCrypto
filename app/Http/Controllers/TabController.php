@@ -17,7 +17,7 @@ class TabController extends Controller
     public function index(Request $request): JsonResponse
     {
         if($request->user()) {
-            return response()->json($request->user()->tabs()->toArray(), 200);
+            return response()->json($request->user()->tabs);
         }
 
         return response()->json([
