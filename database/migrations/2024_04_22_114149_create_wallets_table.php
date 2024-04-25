@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor('App\Models\User', 'user_id')->constrained();
             $table->string('wallet');
-            $table->string('private_key');
+            $table->string('private_key')->nullable();
             $table->timestamps();
         });
     }

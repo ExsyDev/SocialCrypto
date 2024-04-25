@@ -54,4 +54,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Provider::class,'user_id','id');
     }
+
+    /**
+     * @return HasMany
+     */
+    public function wallets(): HasMany
+    {
+        return $this->hasMany(Wallet::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function tabs(): HasMany
+    {
+        return $this->hasMany(Tab::class);
+    }
 }

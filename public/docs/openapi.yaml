@@ -1,0 +1,211 @@
+openapi: 3.0.3
+info:
+  title: 'Social Crypto Documentation'
+  description: 'Here you can find social crypto documentation api'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://socialcrypto.test'
+paths:
+  /api/auth/login:
+    post:
+      summary: 'Login user and create token'
+      operationId: loginUserAndCreateToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: layla.kassulke@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: "4xR3'es^r5Nq|1"
+                remember_me:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/register:
+    post:
+      summary: 'Create user'
+      operationId: createUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: odio
+                email:
+                  type: string
+                  description: ''
+                  example: senger.everardo@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: "{WSElYcC'+67k"
+                c_password:
+                  type: string
+                  description: 'The value and <code>password</code> must match.'
+                  example: enim
+              required:
+                - name
+                - email
+                - password
+                - c_password
+      security: []
+  /api/auth/logout:
+    post:
+      summary: 'Logout user (Revoke the token)'
+      operationId: logoutUserRevokeTheToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/auth/user:
+    get:
+      summary: 'Get User Data'
+      operationId: getUserData
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/social_categories:
+    get:
+      summary: 'Get the social categories'
+      operationId: getTheSocialCategories
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/social_categories/create:
+    post:
+      summary: 'Create social category'
+      operationId: createSocialCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/tabs:
+    get:
+      summary: 'Get tabs of the user'
+      operationId: getTabsOfTheUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/tabs/create:
+    post:
+      summary: 'Create tab user'
+      operationId: createTabUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/wallets:
+    get:
+      summary: ''
+      operationId: getApiWallets
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/wallets/create:
+    post:
+      summary: 'Create wallet user'
+      operationId: createWalletUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''

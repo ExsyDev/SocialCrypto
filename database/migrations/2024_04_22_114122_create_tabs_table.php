@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('tabs', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
+            $table->foreignIdFor('App\Models\User', 'user_id')->constrained();
+            $table->string('name');
             $table->timestamps();
         });
     }

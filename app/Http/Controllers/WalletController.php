@@ -2,17 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Wallet;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class WalletController extends Controller
 {
     /**
-     * @return Collection
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function index(): Collection
+    public function index(Request $request): JsonResponse
     {
-        return Wallet::all();
+        if($request->user()) {
+            return $request->user()->wallets;
+        }
+
+        return response()->json([
+            'message' => 'Unauthorized'
+        ],401);
+    }
+
+    /**
+     * Create wallet user
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function create(Request $request): JsonResponse
+    {
+        if($request->user()) {
+            return $request->user()->wallets()->create([
+                'wallet' => \Str::random() //TODO: IMPLEMENT TRON WALLET GENERATOR
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Unauthorized'
+        ],401);
     }
 }
