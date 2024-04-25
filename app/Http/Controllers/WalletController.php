@@ -14,7 +14,7 @@ class WalletController extends Controller
     public function index(Request $request): JsonResponse
     {
         if($request->user()) {
-            return $request->user()->wallets->toJson();
+            return response()->json($request->user()->wallets()->toArray());
         }
 
         return response()->json([
