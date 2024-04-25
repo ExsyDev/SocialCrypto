@@ -30,9 +30,15 @@ class WalletController extends Controller
     public function create(Request $request): JsonResponse
     {
         if($request->user()) {
-            return $request->user()->wallets()->create([
+            $wallet = $request->user()->wallets()->create([
                 'wallet' => \Str::random() //TODO: IMPLEMENT TRON WALLET GENERATOR
             ]);
+
+            if ($wallet) {
+                return response()->json(
+                    ['message' => 'Wallet created successfully!', 'wallet' => $wallet->wallet]
+                );
+            }
         }
 
         return response()->json([
