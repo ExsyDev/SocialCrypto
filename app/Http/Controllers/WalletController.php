@@ -41,8 +41,9 @@ class WalletController extends Controller
             try {
                 $tron = new Tron($fullNode, $solidityNode, $eventServer);
 
-                $wallet = $tron->createAccount()->getAddress();
-                $privateKey = $tron->createAccount()->getPrivateKey();
+                $account = $tron->createAccount();
+                $wallet = $account->getAddress();
+                $privateKey = $account->getPrivateKey();
             } catch (TronException $e) {
                 exit($e->getMessage());
             }
