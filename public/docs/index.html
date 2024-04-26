@@ -45,12 +45,12 @@
     </span>
 </a>
 <div class="tocify-wrapper">
-
+    
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                     </div>
-
+    
     <div class="search">
         <input type="text" class="search" id="input-search" placeholder="Search">
     </div>
@@ -96,7 +96,7 @@
                                 <a href="#endpoints-POSTapi-tabs-create">Create tab user</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-wallets">
-                                <a href="#endpoints-GETapi-wallets">GET api/wallets</a>
+                                <a href="#endpoints-GETapi-wallets">Get user wallets</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-wallets-create">
                                 <a href="#endpoints-POSTapi-wallets-create">Create wallet user</a>
@@ -108,6 +108,7 @@
     <ul class="toc-footer" id="toc-footer">
                     <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
                             <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
@@ -128,11 +129,13 @@
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
         <h1 id="endpoints">Endpoints</h1>
 
-
+    
 
                                 <h2 id="endpoints-POSTapi-auth-login">Login user and create token</h2>
 
@@ -151,8 +154,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"layla.kassulke@example.com\",
-    \"password\": \"4xR3\'es^r5Nq|1\",
+    \"email\": \"kristian78@example.com\",
+    \"password\": \"S@}{PGckp=\\\\tXm\",
     \"remember_me\": false
 }"
 </code></pre></div>
@@ -169,8 +172,8 @@ const headers = {
 };
 
 let body = {
-    "email": "layla.kassulke@example.com",
-    "password": "4xR3'es^r5Nq|1",
+    "email": "kristian78@example.com",
+    "password": "S@}{PGckp=\\tXm",
     "remember_me": false
 };
 
@@ -260,10 +263,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-auth-login"
-               value="layla.kassulke@example.com"
+               value="kristian78@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>layla.kassulke@example.com</code></p>
+<p>Must be a valid email address. Example: <code>kristian78@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -271,10 +274,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-auth-login"
-               value="4xR3'es^r5Nq|1"
+               value="S@}{PGckp=\tXm"
                data-component="body">
     <br>
-<p>Example: <code>4xR3'es^r5Nq|1</code></p>
+<p>Example: <code>S@}{PGckp=\tXm</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>remember_me</code></b>&nbsp;&nbsp;
@@ -316,10 +319,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"odio\",
-    \"email\": \"senger.everardo@example.net\",
-    \"password\": \"{WSElYcC\'+67k\",
-    \"c_password\": \"enim\"
+    \"name\": \"quia\",
+    \"email\": \"hettinger.elyssa@example.net\",
+    \"password\": \"?Nq=_CRFp-U(]5DwvVj\",
+    \"c_password\": \"fuga\"
 }"
 </code></pre></div>
 
@@ -335,10 +338,10 @@ const headers = {
 };
 
 let body = {
-    "name": "odio",
-    "email": "senger.everardo@example.net",
-    "password": "{WSElYcC'+67k",
-    "c_password": "enim"
+    "name": "quia",
+    "email": "hettinger.elyssa@example.net",
+    "password": "?Nq=_CRFp-U(]5DwvVj",
+    "c_password": "fuga"
 };
 
 fetch(url, {
@@ -427,10 +430,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-auth-register"
-               value="odio"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>odio</code></p>
+<p>Example: <code>quia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -438,10 +441,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-auth-register"
-               value="senger.everardo@example.net"
+               value="hettinger.elyssa@example.net"
                data-component="body">
     <br>
-<p>Example: <code>senger.everardo@example.net</code></p>
+<p>Example: <code>hettinger.elyssa@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -449,10 +452,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-auth-register"
-               value="{WSElYcC'+67k"
+               value="?Nq=_CRFp-U(]5DwvVj"
                data-component="body">
     <br>
-<p>Example: <code>{WSElYcC'+67k</code></p>
+<p>Example: <code>?Nq=_CRFp-U(]5DwvVj</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>c_password</code></b>&nbsp;&nbsp;
@@ -460,10 +463,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="c_password"                data-endpoint="POSTapi-auth-register"
-               value="enim"
+               value="fuga"
                data-component="body">
     <br>
-<p>The value and <code>password</code> must match. Example: <code>enim</code></p>
+<p>The value and <code>password</code> must match. Example: <code>fuga</code></p>
         </div>
         </form>
 
@@ -1166,7 +1169,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-wallets">GET api/wallets</h2>
+                    <h2 id="endpoints-GETapi-wallets">Get user wallets</h2>
 
 <p>
 </p>
@@ -1399,9 +1402,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+            
 
-
-
+        
     </div>
     <div class="dark-box">
                     <div class="lang-selector">

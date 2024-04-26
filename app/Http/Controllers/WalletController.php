@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use IEXBase\TronAPI\Exception\TronException;
+use IEXBase\TronAPI\Provider\HttpProvider;
+use IEXBase\TronAPI\Tron;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class WalletController extends Controller
 {
     /**
+     * Get user wallets
      * @param Request $request
      * @return JsonResponse
      */
@@ -30,8 +34,22 @@ class WalletController extends Controller
     public function create(Request $request): JsonResponse
     {
         if($request->user()) {
+            $fullNode = new HttpProvider('http://65.108.233.218:8090');
+            $solidityNode = new HttpProvider('http://65.108.233.218:8091');
+            $eventServer = new HttpProvider('http://65.108.233.218:8090');
+
+            try {
+                $tron = new Tron($fullNode, $solidityNode, $eventServer);
+
+                $wallet = $tron->createAccount()->getAddress();
+                $privateKey = $tron->createAccount()->getPrivateKey();
+            } catch (TronException $e) {
+                exit($e->getMessage());
+            }
+
             $wallet = $request->user()->wallets()->create([
-                'wallet' => \Str::random() //TODO: IMPLEMENT TRON WALLET GENERATOR
+                'wallet' => $wallet,
+                'private_key' => $privateKey
             ]);
 
             if ($wallet) {

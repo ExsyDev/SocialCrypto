@@ -26,11 +26,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: layla.kassulke@example.com
+                  example: kristian78@example.com
                 password:
                   type: string
                   description: ''
-                  example: "4xR3'es^r5Nq|1"
+                  example: 'S@}{PGckp=\tXm'
                 remember_me:
                   type: boolean
                   description: ''
@@ -58,19 +58,19 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: odio
+                  example: quia
                 email:
                   type: string
                   description: ''
-                  example: senger.everardo@example.net
+                  example: hettinger.elyssa@example.net
                 password:
                   type: string
                   description: ''
-                  example: "{WSElYcC'+67k"
+                  example: '?Nq=_CRFp-U(]5DwvVj'
                 c_password:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: enim
+                  example: fuga
               required:
                 - name
                 - email
@@ -175,8 +175,8 @@ paths:
       security: []
   /api/wallets:
     get:
-      summary: ''
-      operationId: getApiWallets
+      summary: 'Get user wallets'
+      operationId: getUserWallets
       description: ''
       parameters: []
       responses:
@@ -209,3 +209,12 @@ tags:
   -
     name: Endpoints
     description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

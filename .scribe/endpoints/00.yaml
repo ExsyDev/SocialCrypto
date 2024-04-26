@@ -26,7 +26,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: layla.kassulke@example.com
+        example: kristian78@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -35,7 +35,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: "4xR3'es^r5Nq|1"
+        example: 'S@}{PGckp=\tXm'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -50,8 +50,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: layla.kassulke@example.com
-      password: "4xR3'es^r5Nq|1"
+      email: kristian78@example.com
+      password: 'S@}{PGckp=\tXm'
       remember_me: false
     fileParameters: []
     responses: []
@@ -86,7 +86,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: odio
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -95,7 +95,7 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: senger.everardo@example.net
+        example: hettinger.elyssa@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -104,7 +104,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: "{WSElYcC'+67k"
+        example: '?Nq=_CRFp-U(]5DwvVj'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -113,16 +113,16 @@ endpoints:
         name: c_password
         description: 'The value and <code>password</code> must match.'
         required: true
-        example: enim
+        example: fuga
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: odio
-      email: senger.everardo@example.net
-      password: "{WSElYcC'+67k"
-      c_password: enim
+      name: quia
+      email: hettinger.elyssa@example.net
+      password: '?Nq=_CRFp-U(]5DwvVj'
+      c_password: fuga
     fileParameters: []
     responses: []
     responseFields: []
@@ -350,7 +350,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Get user wallets'
       description: ''
       authenticated: false
       custom: []
