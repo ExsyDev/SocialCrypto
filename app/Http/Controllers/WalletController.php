@@ -30,13 +30,14 @@ class WalletController extends Controller
      * Create wallet user
      * @param Request $request
      * @return JsonResponse
+     * @throws TronException
      */
     public function create(Request $request): JsonResponse
     {
         if($request->user()) {
-            $fullNode = new HttpProvider('http://65.108.233.218:8090');
-            $solidityNode = new HttpProvider('http://65.108.233.218:8091');
-            $eventServer = new HttpProvider('http://65.108.233.218:8090');
+            $fullNode = new HttpProvider(config('services.node.url'));
+            $solidityNode = new HttpProvider(config('services.node.url'));
+            $eventServer = new HttpProvider(config('services.node.url'));
 
             try {
                 $tron = new Tron($fullNode, $solidityNode, $eventServer);
@@ -63,5 +64,27 @@ class WalletController extends Controller
         return response()->json([
             'message' => 'Unauthorized'
         ],401);
+    }
+
+    /**
+     * @throws TronException
+     */
+    public function getTokenInfo($wallet)
+    {
+        $tron = new HttpProvider(config('services.node.url'));
+
+        return [$wallet->wallet => [
+            'type' => 'basic',
+            'amount' => 1.000000,
+            'risk' => false,
+            'tokenInfo' => [
+                'tokenId' => $wallet,
+                'tokenAbbr' => $wallet->token,
+                'tokenName' => $wallet->token->name,
+                'tokenDecimal' => 6,
+                'tokenType' => 'trc20',
+                'tokenLogo' => ''
+            ]
+        ]];
     }
 }

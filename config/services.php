@@ -41,6 +41,10 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'GOOGLE_REDIRECT_URI',
+        'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
+
+    'node' => [
+      'url' => 'http://65.108.233.218:8090'
+    ]
 ];

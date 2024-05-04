@@ -1,12 +1,16 @@
 <?php
 
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\TabController;
 use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 Route::group(['prefix' => 'auth'], function () {
+    Route::get('/login/{provider}', [AuthController::class,'redirectToProvider']);
+    Route::get('/login/{provider}/callback', [AuthController::class,'handleProviderCallback']);
+
     Route::post('login', [AuthController::class, 'login']);
     Route::post('register', [AuthController::class, 'register']);
 
@@ -24,5 +28,6 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/tabs/create', [TabController::class, 'create']);
 
     Route::get('/wallets', [WalletController::class, 'index']);
+    Route::get('/wallets/statistic', [StatisticController::class, 'index']);
     Route::post('/wallets/create', [WalletController::class, 'create']);
 });
