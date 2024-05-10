@@ -1,0 +1,93 @@
+name: Translations
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/add-locale
+    metadata:
+      groupName: Translations
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add new locale'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      locale:
+        name: locale
+        description: ''
+        required: true
+        example: en_PK
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: asperiores
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      locale: en_PK
+      name: asperiores
+      active: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/add-translation
+    metadata:
+      groupName: Translations
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add translation'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

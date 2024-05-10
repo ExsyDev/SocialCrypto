@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Social Crypto Documentation",
-        "_postman_id": "f173d629-fee0-4f97-8b6b-9d13b7d1be86",
+        "_postman_id": "b6653abc-f5b0-41d8-acc4-edcf9bad7ce7",
         "description": "Here you can find social crypto documentation api",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -19,6 +19,126 @@
             "name": "Endpoints",
             "description": "",
             "item": [
+                {
+                    "name": "Redirect the user to the Provider authentication page.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login\/:provider",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login\/:provider",
+                            "variable": [
+                                {
+                                    "id": "provider",
+                                    "key": "provider",
+                                    "value": "dicta",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http:\/\/localhost:3000"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                }
+                            ],
+                            "code": 422,
+                            "body": "{\"error\":\"Please login using telegram or google\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtain the user information from Provider callback.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login\/:provider\/callback",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login\/:provider\/callback",
+                            "variable": [
+                                {
+                                    "id": "provider",
+                                    "key": "provider",
+                                    "value": "et",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http:\/\/localhost:3000"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                }
+                            ],
+                            "code": 422,
+                            "body": "{\"error\":\"Please login using telegram or google\"}",
+                            "name": ""
+                        }
+                    ]
+                },
                 {
                     "name": "Login user and create token",
                     "request": {
@@ -41,7 +161,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"kristian78@example.com\",\"password\":\"S@}{PGckp=\\\\tXm\",\"remember_me\":false}"
+                            "raw": "{\"email\":\"kacie08@example.org\",\"password\":\"+512Sr)clm7cHoT>U}b\",\"remember_me\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +192,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"quia\",\"email\":\"hettinger.elyssa@example.net\",\"password\":\"?Nq=_CRFp-U(]5DwvVj\",\"c_password\":\"fuga\"}"
+                            "raw": "{\"name\":\"aspernatur\",\"email\":\"tara.sipes@example.net\",\"password\":\"zc::m9\",\"c_password\":\"enim\"}"
                         },
                         "description": "",
                         "auth": {
@@ -374,6 +494,58 @@
                     ]
                 },
                 {
+                    "name": "GET api\/wallets\/statistic",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/wallets\/statistic",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/wallets\/statistic"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http:\/\/localhost:3000"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
                     "name": "Create wallet user",
                     "request": {
                         "url": {
@@ -402,13 +574,78 @@
                     "response": []
                 }
             ]
+        },
+        {
+            "name": "Translations",
+            "description": "",
+            "item": [
+                {
+                    "name": "Add new locale",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/add-locale",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/add-locale"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"locale\":\"en_PK\",\"name\":\"asperiores\",\"active\":true}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add translation",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/add-translation",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/add-translation"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
         }
     ],
     "auth": {
         "type": "bearer",
         "bearer": [
             {
-                "key": "key",
+                "key": "Authorization",
                 "type": "string"
             }
         ]

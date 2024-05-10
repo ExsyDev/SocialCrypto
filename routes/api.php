@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\TabController;
+use App\Http\Controllers\TranslationController;
 use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -21,6 +23,9 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
+    Route::post('/add-locale', LanguageController::class)->name('translations');
+    Route::post('/add-translation', TranslationController::class)->name('translations');
+
     Route::get('/social_categories', [SocialController::class, 'index']);
     Route::post('/social_categories/create', [SocialController::class, 'create']);
 

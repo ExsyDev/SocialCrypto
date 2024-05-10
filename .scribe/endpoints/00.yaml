@@ -3,6 +3,106 @@ description: ''
 endpoints:
   -
     httpMethods:
+      - GET
+    uri: 'api/auth/login/{provider}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Redirect the user to the Provider authentication page.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      provider:
+        name: provider
+        description: ''
+        required: true
+        example: dicta
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      provider: dicta
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 422
+        content: '{"error":"Please login using telegram or google"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/auth/login/{provider}/callback'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Obtain the user information from Provider callback.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      provider:
+        name: provider
+        description: ''
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      provider: et
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 422
+        content: '{"error":"Please login using telegram or google"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
     uri: api/auth/login
     metadata:
@@ -26,7 +126,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: kristian78@example.com
+        example: kacie08@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -35,7 +135,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: 'S@}{PGckp=\tXm'
+        example: '+512Sr)clm7cHoT>U}b'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -44,15 +144,15 @@ endpoints:
         name: remember_me
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: kristian78@example.com
-      password: 'S@}{PGckp=\tXm'
-      remember_me: false
+      email: kacie08@example.org
+      password: '+512Sr)clm7cHoT>U}b'
+      remember_me: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -86,7 +186,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: quia
+        example: aspernatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -95,7 +195,7 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: hettinger.elyssa@example.net
+        example: tara.sipes@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -104,7 +204,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: '?Nq=_CRFp-U(]5DwvVj'
+        example: 'zc::m9'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -113,16 +213,16 @@ endpoints:
         name: c_password
         description: 'The value and <code>password</code> must match.'
         required: true
-        example: fuga
+        example: enim
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: quia
-      email: hettinger.elyssa@example.net
-      password: '?Nq=_CRFp-U(]5DwvVj'
-      c_password: fuga
+      name: aspernatur
+      email: tara.sipes@example.net
+      password: 'zc::m9'
+      c_password: enim
     fileParameters: []
     responses: []
     responseFields: []
@@ -351,6 +451,46 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Get user wallets'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/wallets/statistic
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
       description: ''
       authenticated: false
       custom: []

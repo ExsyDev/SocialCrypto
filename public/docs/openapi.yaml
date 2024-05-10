@@ -7,6 +7,68 @@ servers:
   -
     url: 'http://socialcrypto.test'
 paths:
+  '/api/auth/login/{provider}':
+    get:
+      summary: 'Redirect the user to the Provider authentication page.'
+      operationId: redirectTheUserToTheProviderAuthenticationPage
+      description: ''
+      parameters: []
+      responses:
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Please login using telegram or google'
+                properties:
+                  error:
+                    type: string
+                    example: 'Please login using telegram or google'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: provider
+        description: ''
+        example: dicta
+        required: true
+        schema:
+          type: string
+  '/api/auth/login/{provider}/callback':
+    get:
+      summary: 'Obtain the user information from Provider callback.'
+      operationId: obtainTheUserInformationFromProviderCallback
+      description: ''
+      parameters: []
+      responses:
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Please login using telegram or google'
+                properties:
+                  error:
+                    type: string
+                    example: 'Please login using telegram or google'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: provider
+        description: ''
+        example: et
+        required: true
+        schema:
+          type: string
   /api/auth/login:
     post:
       summary: 'Login user and create token'
@@ -26,15 +88,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: kristian78@example.com
+                  example: kacie08@example.org
                 password:
                   type: string
                   description: ''
-                  example: 'S@}{PGckp=\tXm'
+                  example: '+512Sr)clm7cHoT>U}b'
                 remember_me:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
               required:
                 - email
                 - password
@@ -58,19 +120,19 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: quia
+                  example: aspernatur
                 email:
                   type: string
                   description: ''
-                  example: hettinger.elyssa@example.net
+                  example: tara.sipes@example.net
                 password:
                   type: string
                   description: ''
-                  example: '?Nq=_CRFp-U(]5DwvVj'
+                  example: 'zc::m9'
                 c_password:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: fuga
+                  example: enim
               required:
                 - name
                 - email
@@ -195,6 +257,28 @@ paths:
       tags:
         - Endpoints
       security: []
+  /api/wallets/statistic:
+    get:
+      summary: ''
+      operationId: getApiWalletsStatistic
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
   /api/wallets/create:
     post:
       summary: 'Create wallet user'
@@ -205,9 +289,54 @@ paths:
       tags:
         - Endpoints
       security: []
+  /api/add-locale:
+    post:
+      summary: 'Add new locale'
+      operationId: addNewLocale
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Translations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                locale:
+                  type: string
+                  description: ''
+                  example: en_PK
+                name:
+                  type: string
+                  description: ''
+                  example: asperiores
+                active:
+                  type: boolean
+                  description: ''
+                  example: true
+              required:
+                - locale
+                - name
+      security: []
+  /api/add-translation:
+    post:
+      summary: 'Add translation'
+      operationId: addTranslation
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Translations
+      security: []
 tags:
   -
     name: Endpoints
+    description: ''
+  -
+    name: Translations
     description: ''
 components:
   securitySchemes:
