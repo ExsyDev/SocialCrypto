@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class BalanceController extends Controller
 {
     /**
+     * Get balances by wallet
      * @param Request $request
      * @param $walletId
      * @return JsonResponse
@@ -20,6 +21,7 @@ class BalanceController extends Controller
     }
 
     /**
+     * Get Balances types
      * @param Request $request
      * @param $walletId
      * @return JsonResponse

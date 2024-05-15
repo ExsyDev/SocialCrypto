@@ -22,15 +22,15 @@ Route::group(['prefix' => 'auth'], function () {
     });
 });
 
-Route::get('balances/{wallet_id}', 'App\Http\Controllers\BalanceController@getBalancesByWallet');
-Route::get('balances/{wallet_id}', 'App\Http\Controllers\BalanceController@getMainAndSecondaryBalances');
-
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/add-locale', LanguageController::class)->name('translations');
     Route::post('/add-translation', TranslationController::class)->name('translations');
 
     Route::get('/social_categories', [SocialController::class, 'index']);
     Route::post('/social_categories/create', [SocialController::class, 'create']);
+
+    Route::get('balances/{wallet_id}', 'App\Http\Controllers\BalanceController@getBalancesByWallet');
+    Route::post('balances/types/{wallet_id}', 'App\Http\Controllers\BalanceController@getMainAndSecondaryBalances');
 
     Route::get('/tabs', [TabController::class, 'index']);
     Route::post('/tabs/create', [TabController::class, 'create']);
