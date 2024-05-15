@@ -22,6 +22,8 @@ Route::group(['prefix' => 'auth'], function () {
     });
 });
 
+Route::get('balances/{wallet_id}', 'App\Http\Controllers\BalanceController@getBalancesByWallet');
+Route::get('balances/{wallet_id}', 'App\Http\Controllers\BalanceController@getMainAndSecondaryBalances');
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/add-locale', LanguageController::class)->name('translations');
@@ -33,7 +35,6 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('/tabs', [TabController::class, 'index']);
     Route::post('/tabs/create', [TabController::class, 'create']);
 
-    Route::get('balances', 'App\Http\Controllers\BalanceController@index');
     Route::post('send-funds', 'App\Http\Controllers\TransactionController@sendFunds');
     Route::get('transaction-cost', 'App\Http\Controllers\TransactionController@getTransactionCost');
 
